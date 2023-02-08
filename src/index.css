@@ -7,7 +7,22 @@ body,
   padding: 0;
 }
 
-#root {
+.background {
+  background-image: linear-gradient(
+    to right bottom,
+    #ffffff,
+    #eeedfa,
+    #dadcf5,
+    #c5cbf1,
+    #acbced,
+    #9bb2ed,
+    #88a8ee,
+    #729eee,
+    #6296f3,
+    #508ef7,
+    #3a85fb,
+    #197dff
+  );
 }
 
 body {
@@ -41,4 +56,20 @@ code {
 ::-webkit-scrollbar {
   width: 0;
   background: #f4f4f4;
+}
+
+.floating {
+  animation: floating 7s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

@@ -3,29 +3,28 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 export function Earth(props) {
-  const model = useLoader(GLTFLoader, '/Planet.glb')
-  let mixer
+  const model = useLoader(GLTFLoader, "/Planet.glb");
+  let mixer;
   if (model.animations.length) {
-      mixer = new THREE.AnimationMixer(model.scene);
-      model.animations.forEach(clip => {
-          const action = mixer.clipAction(clip)
-          action.play();
-      });
+    mixer = new THREE.AnimationMixer(model.scene);
+    model.animations.forEach((clip) => {
+      const action = mixer.clipAction(clip);
+      action.play();
+    });
   }
 
   useFrame((state, delta) => {
-      mixer?.update(delta)
-  })
+    mixer?.update(delta);
+  });
 
   const [position, setPosition] = useState([-4, 0, -1]);
-  const [ offset, setOffset ] = useState(0);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       setOffset(window.pageYOffset);
     });
   }, []);
@@ -40,7 +39,7 @@ export function Earth(props) {
       <pointLight color="#f6f3ea" position={[2, 0, 10]} intensity={1.2} />
       <mesh position={position}>
         <Suspense fallback={null}>
-          <primitive object={model.scene}  rotation={[0.3,-0.1,-0.4,]}/>
+          <primitive object={model.scene} rotation={[0.3, -0.1, -0.4]} />
         </Suspense>
       </mesh>
     </>
