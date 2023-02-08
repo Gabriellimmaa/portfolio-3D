@@ -13,6 +13,7 @@ export function Terrain(props) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     window.addEventListener("scroll", () => {
       setOffset(window.pageYOffset);
     });

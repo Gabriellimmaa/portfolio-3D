@@ -98,6 +98,7 @@ export function SectionProjects() {
             ]}
             date="18/08/2022 - 01/10/2022"
             github="https://github.com/Gabriellimmaa/turismo-bandeirantes"
+            linkedin="https://www.linkedin.com/posts/gabriel-lima-5263681aa_turismo-pr-uenp-activity-6981333667029626880-7CCi?utm_source=share&utm_medium=member_desktop"
             image={TurismoBandeirantes}
           />
         </SwiperSlide>
@@ -113,6 +114,7 @@ export function SectionProjects() {
             ]}
             date="06/10/2022"
             github="https://github.com/Gabriellimmaa/agrolugue-geniuscon-2022"
+            linkedin="https://www.linkedin.com/posts/gabriel-lima-5263681aa_geniuscon-sebraepr-sebrae-activity-6984272253249064960-EfP-?utm_source=share&utm_medium=member_desktop"
             image={Agrolugue}
           />
         </SwiperSlide>

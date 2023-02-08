@@ -1,7 +1,7 @@
 import "./App.css";
 import styled from "styled-components";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Earth } from "./components/earth";
 import { SectionTop } from "./components/sectionTop";
 import { Astronaut } from "./components/astronaut";
@@ -9,32 +9,25 @@ import { Terrain } from "./components/terrain";
 import { SectionAbout } from "./components/sectionAbout";
 import { SectionProjects } from "./components/sectionProjects";
 import { Stars, useProgress } from "@react-three/drei";
+import "./styles/loading.css";
 
 function App() {
   const { progress } = useProgress();
-  console.log(progress);
 
   return (
     <>
       {progress !== 100 && (
-        <div
-          style={{
-            position: "fixed",
-            width: "100%",
-            height: "100%",
-            backgroundColor: "#000",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "#fff",
-            fontSize: "30px",
-            fontWeight: "700",
-            zIndex: 9999999,
-          }}
-        >
-          CARREGANDO
-        </div>
+        <LoadingContainer className="background">
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          Carregando
+        </LoadingContainer>
       )}
+
       <CanvasContainer>
         <div
           style={{
@@ -87,4 +80,18 @@ export default App;
 const CanvasContainer = styled.div`
   width: 100%;
   height: 100%;
+`;
+
+const LoadingContainer = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  z-index: 9999999;
 `;

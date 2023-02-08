@@ -28,12 +28,12 @@ export function Card({
           {awards && (
             <>
               <br />
-              {awards.map((award) => {
+              {awards.map((award, _index) => {
                 return (
-                  <>
+                  <div key={_index}>
                     <b>🏆 {award.title}</b> {award.description}
                     <br />
-                  </>
+                  </div>
                 );
               })}
             </>
@@ -43,7 +43,7 @@ export function Card({
         </p>
         <label className="space-between">
           <span>{date}</span>
-          <div>
+          <div style={{ display: "flex", gap: 5 }}>
             {github && (
               <a href={github} rel="noreferrer" target="_blank">
                 <FaGithubAlt />
