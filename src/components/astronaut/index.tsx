@@ -1,13 +1,13 @@
 import React, { useRef, Suspense, useEffect, useState } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { Euler, useFrame, useLoader, Vector3 } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export function Astronaut(props) {
+export function Astronaut() {
   const model = useLoader(GLTFLoader, "/Astronaut.glb");
-  let mixer;
+  let mixer: THREE.AnimationMixer;
   if (model.animations.length) {
     mixer = new THREE.AnimationMixer(model.scene);
     model.animations.forEach((clip) => {
@@ -20,8 +20,8 @@ export function Astronaut(props) {
     mixer?.update(delta);
   });
 
-  const [rotation, setRotation] = useState([1.3, -1, 1]);
-  const [position, setPosition] = useState([0, -5.5, -5]);
+  const [rotation, setRotation] = useState<Euler>([1.3, -1, 1]);
+  const [position, setPosition] = useState<Vector3>([0, -5.5, -5]);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {

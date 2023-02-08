@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import "../../styles/projectsSection.css";
@@ -14,6 +13,10 @@ import Santander from "../../assets/images/projetos/santander.png";
 import TurismoBandeirantes from "../../assets/images/projetos/turismo-bandeirantes.png";
 import Agrolugue from "../../assets/images/projetos/agrolugue.png";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import { EffectCoverflow, Pagination } from "swiper";
 import { Card } from "../card/Index";
 

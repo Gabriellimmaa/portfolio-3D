@@ -1,13 +1,13 @@
 import React, { useRef, Suspense, useEffect, useState } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useFrame, useLoader, Vector3 } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export function Earth(props) {
+export function Earth() {
   const model = useLoader(GLTFLoader, "/Planet.glb");
-  let mixer;
+  let mixer: THREE.AnimationMixer;
   if (model.animations.length) {
     mixer = new THREE.AnimationMixer(model.scene);
     model.animations.forEach((clip) => {
@@ -20,7 +20,7 @@ export function Earth(props) {
     mixer?.update(delta);
   });
 
-  const [position, setPosition] = useState([-4, 0, -1]);
+  const [position, setPosition] = useState<Vector3>([-4, 0, -1]);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {

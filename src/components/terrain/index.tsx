@@ -1,15 +1,15 @@
 import React, { useRef, Suspense, useEffect, useState } from "react";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { Euler, useFrame, useLoader, Vector3 } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
-export function Terrain(props) {
+export function Terrain() {
   const model = useLoader(GLTFLoader, "/Terrain.glb");
 
-  const [position, setPosition] = useState([0, -15, -5]);
-  const [rotation, setRotation] = useState([-0.5, 0.5, 0]);
+  const [position, setPosition] = useState<Vector3>([0, -15, -5]);
+  const [rotation, setRotation] = useState<Euler>([-0.5, 0.5, 0]);
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
