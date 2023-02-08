@@ -1,11 +1,22 @@
 import React from "react";
 import {
-  FaFile,
-  FaFileSignature,
   FaGithubAlt,
   FaLinkedin,
 } from "react-icons/fa";
-import styled from "styled-components";
+
+type TProps = {
+  title: string;
+  description: string;
+  image: string;
+  date: string;
+  technologies: string;
+  awards?: {
+    title: string;
+    description?: string;
+  }[];
+  linkedin?: string;
+  github?: string;
+};
 
 export function Card({
   title,
@@ -16,7 +27,7 @@ export function Card({
   awards,
   linkedin,
   github,
-}) {
+}: TProps) {
   return (
     <div className="swiper row m-0 p-0 h-100">
       <img className="" src={image} alt="Launcher Alliance" />
